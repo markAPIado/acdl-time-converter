@@ -28,7 +28,7 @@ function useWorldTimeApi(timeZone: string) {
   });
 
   useEffect(() => {
-    fetch(`http://worldtimeapi.org/api/timezone/${timeZone}`)
+    fetch(`https://worldtimeapi.org/api/timezone/${timeZone}`)
       .then((response) => response.json() as Promise<WordlTime>)
       .then((data) => {
         const timeInTimeZone = moment.utc(data.datetime).tz(timeZone);
