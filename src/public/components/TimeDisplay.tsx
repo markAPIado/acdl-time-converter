@@ -1,15 +1,24 @@
 interface TimeDisplayProps {
   time: number;
   text: string;
+  isMyTimeZone?: boolean;
 }
 
-export default function TimeDisplay({ time, text }: TimeDisplayProps) {
+export default function TimeDisplay({
+  isMyTimeZone,
+  text,
+  time
+}: TimeDisplayProps) {
   return (
-    <div className="flex flex-col">
-      <span className="countdown font-mono text-5xl">
+    <div className="mb-5 flex flex-col">
+      <span
+        className={`countdown font-mono ${
+          isMyTimeZone ? 'text-9xl' : 'text-5xl'
+        }`}
+      >
         <span style={{ '--value': time } as React.CSSProperties}></span>
       </span>
-      {text}
+      <span className={`${isMyTimeZone ? 'text-xl' : 'text-sm'}`}>{text}</span>
     </div>
   );
 }

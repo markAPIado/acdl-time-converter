@@ -3,9 +3,13 @@ import MeridiemIndicator from './MeridiemIndicator';
 import TimeDisplay from './TimeDisplay';
 interface CurrentTimeProps {
   timeZone: string;
+  isMyTimeZone?: boolean;
 }
 
-export default function CurrentTime({ timeZone }: CurrentTimeProps) {
+export default function CurrentTime({
+  timeZone,
+  isMyTimeZone
+}: CurrentTimeProps) {
   const { currentTime } = useWorldTimeApi(timeZone);
 
   const hours =
@@ -23,14 +27,25 @@ export default function CurrentTime({ timeZone }: CurrentTimeProps) {
   return (
     <>
       <div className="mr-20 flex flex-col">
-        <span className="countdown font-mono text-5xl">{location}</span>
+        <span className="text-5xl">{location}</span>
         {area}
       </div>
       <div className="grid auto-cols-max grid-flow-col gap-5 text-center">
-        <TimeDisplay time={hours} text="hours" />
-        <TimeDisplay time={currentTime.minutes} text="min" />
-        <TimeDisplay time={currentTime.seconds} text="sec" />
-        <MeridiemIndicator text={currentTime.meridiemIndicator} />
+        <TimeDisplay isMyTimeZone={isMyTimeZone} text="hours" time={hours} />
+        <TimeDisplay
+          isMyTimeZone={isMyTimeZone}
+          text="min"
+          time={currentTime.minutes}
+        />
+        <TimeDisplay
+          isMyTimeZone={isMyTimeZone}
+          text="sec"
+          time={currentTime.seconds}
+        />
+        <MeridiemIndicator
+          isMyTimeZone={isMyTimeZone}
+          text={currentTime.meridiemIndicator}
+        />
       </div>
     </>
   );

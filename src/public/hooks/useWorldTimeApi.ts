@@ -24,7 +24,7 @@ function useWorldTimeApi(timeZone: string) {
     hours: 0,
     minutes: 0,
     seconds: 0,
-    meridiemIndicator: ''
+    meridiemIndicator: 'AM'
   });
 
   useEffect(() => {

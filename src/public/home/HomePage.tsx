@@ -5,9 +5,12 @@ export default function HomePage() {
 
   return (
     <>
-      <CurrentTime
-        timeZone={Intl.DateTimeFormat().resolvedOptions().timeZone}
-      />
+      <div className="mb-20">
+        <CurrentTime
+          isMyTimeZone={true}
+          timeZone={Intl.DateTimeFormat().resolvedOptions().timeZone}
+        />
+      </div>
       <ul>
         {timeZones.map((timeZone) => (
           <CurrentTime timeZone={timeZone} key={timeZone} />
