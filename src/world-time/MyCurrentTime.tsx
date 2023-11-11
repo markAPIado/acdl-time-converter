@@ -11,7 +11,7 @@ export default function CurrentTime({
   const [currentTime, setCurrentTime] = useState('');
 
   useEffect(() => {
-    fetch(`http://worldtimeapi.org/api/timezone/${timeZone}`)
+    fetch(`https://worldtimeapi.org/api/timezone/${timeZone}`)
       .then((response) => response.json())
       .then((data) => {
         setCurrentTime(data.datetime);
