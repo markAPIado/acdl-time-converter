@@ -27,7 +27,7 @@ export default function CurrentTime({
   return (
     <>
       <div className="mr-20 flex flex-col">
-        <span className="text-5xl">{location}</span>
+        <span className="text-3xl sm:text-5xl">{location}</span>
         {area}
       </div>
       <div className="grid auto-cols-max grid-flow-col gap-5 text-center">

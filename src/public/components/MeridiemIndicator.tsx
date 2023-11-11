@@ -11,7 +11,7 @@ export default function MeridiemIndicator({
     <div className="flex flex-col">
       <span
         className={`countdown font-mono ${
-          isMyTimeZone ? 'text-9xl' : 'text-5xl'
+          isMyTimeZone ? 'text-5xl font-bold sm:text-9xl' : 'text-5xl'
         }`}
       >
         {text}

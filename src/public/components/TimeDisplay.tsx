@@ -13,12 +13,14 @@ export default function TimeDisplay({
     <div className="mb-5 flex flex-col">
       <span
         className={`countdown font-mono ${
-          isMyTimeZone ? 'text-9xl' : 'text-5xl'
+          isMyTimeZone ? 'text-5xl font-bold sm:text-9xl' : 'text-5xl'
         }`}
       >
         <span style={{ '--value': time } as React.CSSProperties}></span>
       </span>
-      <span className={`${isMyTimeZone ? 'text-xl' : 'text-sm'}`}>{text}</span>
+      <span className={`${isMyTimeZone ? 'sm:text-xl' : 'text-sm'}`}>
+        {text}
+      </span>
     </div>
   );
 }
