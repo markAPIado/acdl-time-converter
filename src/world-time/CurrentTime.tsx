@@ -1,4 +1,4 @@
-import useWorldTimeApi from '../hooks/useWorldTimeApi';
+import useWorldTimeApi from './useWorldTimeApi';
 import MeridiemIndicator from './MeridiemIndicator';
 import TimeDisplay from './TimeDisplay';
 interface CurrentTimeProps {

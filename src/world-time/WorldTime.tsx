@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import CurrentTime from '../components/CurrentTime';
 import { LuRefreshCcw } from 'react-icons/lu';
+import CurrentTime from './CurrentTime';
 
-export default function HomePage() {
+export default function WorldTime() {
   const timeZones = ['America/New_York', 'EST', 'Asia/Tokyo'];
 
   const [refetchTime, setRefetchTime] = useState(false);

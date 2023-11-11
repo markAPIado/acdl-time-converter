@@ -1,5 +1,5 @@
 import SwitchThemeColor from './SwitchThemeColor';
-import logo from '../../assets/logo-128.png';
+import logo from '../assets/logo-128.png';
 import { Link } from 'react-router-dom';
 
 export default function StickyNavbar() {
