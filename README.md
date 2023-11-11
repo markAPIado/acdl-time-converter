@@ -2,6 +2,8 @@
 
 Timy is a simple time conversion tool.
 
+You can access the application at [https://timy.markapiado.com/](https://timy.markapiado.com/).
+
 ## Installation
 
 **Cloning the repository**
