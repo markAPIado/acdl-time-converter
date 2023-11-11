@@ -1,30 +1,17 @@
-import moment from 'moment-timezone';
-import { useEffect, useState } from 'react';
+import useWorldTimeApi from '../hooks/useWorldTimeApi';
 interface CurrentTimeProps {
   timeZone: string;
 }
 
 export default function CurrentTime({ timeZone }: CurrentTimeProps) {
-  const [currentTime, setCurrentTime] = useState({
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-    meridiemIndicator: ''
-  });
+  const { currentTime } = useWorldTimeApi(timeZone);
 
-  useEffect(() => {
-    fetch(`http://worldtimeapi.org/api/timezone/${timeZone}`)
-      .then((response) => response.json())
-      .then((data) => {
-        const timeInTimeZone = moment.utc(data.dateTime).tz(timeZone);
-        setCurrentTime({
-          hours: timeInTimeZone.hours(),
-          minutes: timeInTimeZone.minutes(),
-          seconds: timeInTimeZone.seconds(),
-          meridiemIndicator: timeInTimeZone.format('A')
-        });
-      });
-  }, [timeZone]);
+  const hours =
+    currentTime.hours === 0
+      ? 12
+      : currentTime.hours > 12
+      ? currentTime.hours - 12
+      : currentTime.hours;
 
   return (
     <>
@@ -38,9 +25,7 @@ export default function CurrentTime({ timeZone }: CurrentTimeProps) {
       <div className="grid auto-cols-max grid-flow-col gap-5 text-center">
         <div className="flex flex-col">
           <span className="countdown font-mono text-5xl">
-            <span
-              style={{ '--value': currentTime.hours } as React.CSSProperties}
-            ></span>
+            <span style={{ '--value': hours } as React.CSSProperties}></span>
           </span>
           hours
         </div>
